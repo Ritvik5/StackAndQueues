@@ -15,6 +15,14 @@ namespace StackAndQueues
             top = null;
         }
 
+        private void IfTopisNull()
+        {
+            if (top == null)
+            {
+                Console.WriteLine("Stack is Empty!!!");
+            }
+        }
+
         public void Push(int data)
         {
             Node newNode = new Node(data);
@@ -24,10 +32,7 @@ namespace StackAndQueues
 
         public void Display()
         {
-            if (top == null)
-            {
-                Console.WriteLine("Stack is Empty!!!");
-            }
+            IfTopisNull();
             Node temp = top;
             while (temp != null)
             {
@@ -36,5 +41,27 @@ namespace StackAndQueues
             }
         }
 
+        public void Peek()
+        {
+            IfTopisNull() ;
+            Console.WriteLine("\nTop most element in stack is: "+top.data);
+        }
+
+        public void Pop()
+        {
+            IfTopisNull();
+            Console.WriteLine("\nValue Popped is :" + top.data);
+            top = top.next;
+            Display();
+        }
+
+        public void IsEmpty()
+        {
+            while (top != null)
+            {
+                Peek();
+                Pop();
+            }
+        }
     }
 }

@@ -13,7 +13,11 @@
             obj.Push(56);
 
             obj.Display();
-            
+
+            obj.Peek();
+
+            obj.Pop();
+            obj.IsEmpty();
         }
     }
 }
