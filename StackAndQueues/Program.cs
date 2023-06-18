@@ -27,6 +27,8 @@
 
             obj.Display();
 
+            obj.IsEmpty();
+
         }
     }
 }

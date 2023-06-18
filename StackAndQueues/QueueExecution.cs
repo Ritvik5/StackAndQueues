@@ -11,6 +11,14 @@ namespace StackAndQueues
         public Qnode front;
         public Qnode rear;
 
+        private void IfFromntIsNull()
+        {
+            if (front == null)
+            {
+                Console.WriteLine("Queue is Empty!!!");
+            }
+        }
+
         public void Enqueue(int data)
         {
             Qnode node = new Qnode(data);
@@ -25,21 +33,42 @@ namespace StackAndQueues
                 this.rear = node;
             }
             Console.WriteLine("{0} is inserted in the list",data);
+            
         }
 
         public void Display()
         {
             Qnode temp = front;
-            if (temp == null)
-            {
-                Console.WriteLine("Queue is Empty!!!");
-                return;
-            }
+            IfFromntIsNull();
             while (temp != null)
             {
                 Console.Write(temp.data+" | ");
                 temp = temp.next;
             }
+        }
+
+        public void Dequeue()
+        {
+            IfFromntIsNull();
+
+            Qnode temp = this.front;
+            this.front = this.front.next;
+
+            if (this.front == null)
+            {
+                this.rear = null;
+            }
+
+            Console.WriteLine("\nItem deleted is {0}", temp.data);
+        }
+
+        public void IsEmpty()
+        {
+            while (this.front != null)
+            {
+                Dequeue();
+            }
+            Display();
         }
     }
 }
